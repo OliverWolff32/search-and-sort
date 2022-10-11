@@ -16,7 +16,11 @@ public class Insertion
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
+    int i = 1;  
+    int j; 
+    
+    j = i-1;
+    
   }
   
   public static void main(String[] args) {
