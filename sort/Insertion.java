@@ -17,10 +17,31 @@ public class Insertion
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
     int i = 1;  
-    int j; 
-    
-    j = i-1;
-    
+    int j = i-1;
+    int k = 0;
+    int temp = 0;
+    while(i < arr.length) {
+        if (j >= 0) {
+            if (arr[i] < arr[j]) {
+                j--;
+            } else {
+                temp = arr[i];
+                k = i;
+            }
+        } else {
+            temp = arr[i];
+            k = i;
+        }
+        
+        if (k > j+1) {
+            arr[k] = arr[k-1];
+            k--;
+        } else {
+            arr[k] = temp;
+        }
+        i++;
+    }
+    return arr;
   }
   
   public static void main(String[] args) {
