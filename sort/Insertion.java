@@ -24,7 +24,11 @@ public class Insertion
         }
         int temp = arr[i]; 
         int k = i;
-        arr
+        while (k > j+1) {
+            arr[k] = arr[k-1]; 
+            k--;
+        }
+        arr[k] = temp;
     }
     
     
