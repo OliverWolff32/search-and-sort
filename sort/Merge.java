@@ -16,7 +16,18 @@ public class Merge
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
+    int n = arr.length;
+    while (n > 1) {
+        int middle = n/2;
+        int leftLength = middle;
+        int rightLength = n-leftLength;
+        for (int index = 0; index < middle; index++){
+            int[] left[index] = arr[index];
+            
+        }
+    }
+    
+    return arr;
   }
   
   public static void main(String[] args) {
