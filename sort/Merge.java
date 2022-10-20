@@ -17,17 +17,60 @@ public class Merge
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
     int n = arr.length;
-    while (n > 1) {
-        int middle = n/2;
-        int leftLength = middle;
-        int rightLength = n-leftLength;
-        for (int index = 0; index < middle; index++){
-            int[] left[index] = arr[index];
-            
-        }
+    if (n < 2) {
+        return arr;
     }
     
+    int middle = n/2;
+    int[] left = new int[middle];
+    int[] right = new int[n - middle];
+    
+    for (int index = 0; index < middle; index++) {
+        left[index] = arr[index]; 
+    }
+    int rightIndex = 0;
+    for (int index = middle; index < n; index++) {
+        right[rightIndex] = arr[index]; 
+        rightIndex++;
+    }
+    sort(left);
+    sort(right);
+    merge(arr, left, right);
     return arr;
+  }
+  
+  public static int[] merge(int[] arr, int[] left, int[] right) {
+      int leftSize = left.length; 
+      int rightSize = right.length; 
+      
+      int a = 0,b = 0,c = 0;
+      
+      while (a < leftSize && b < rightSize) {
+          if (left[a] <= right[b]) {
+              arr[c] = left[a];
+              a++;
+          } else {
+              arr[c] = right[b];
+              b++;
+          }
+          c++;
+      }
+      
+      while (a < leftSize) {
+          arr[c] = left[a]; 
+          a++;
+          c++;
+          
+      }
+      while (b < rightSize) {
+          arr[c] = right[b];
+          b++;
+          c++;
+      }
+      
+      
+      
+      return arr; 
   }
   
   public static void main(String[] args) {
