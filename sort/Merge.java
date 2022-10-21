@@ -40,12 +40,11 @@ public class Merge
   }
   
   public static int[] merge(int[] arr, int[] left, int[] right) {
-      int leftSize = left.length; 
-      int rightSize = right.length; 
+ 
       
       int a = 0,b = 0,c = 0;
       
-      while (a < leftSize && b < rightSize) {
+      while (a < left.length && b < right.length) {
           if (left[a] <= right[b]) {
               arr[c] = left[a];
               a++;
@@ -56,13 +55,13 @@ public class Merge
           c++;
       }
       
-      while (a < leftSize) {
+      while (a < left.length) {
           arr[c] = left[a]; 
           a++;
           c++;
           
       }
-      while (b < rightSize) {
+      while (b < right.length) {
           arr[c] = right[b];
           b++;
           c++;
