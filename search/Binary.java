@@ -36,6 +36,27 @@ public class Binary
     
   }
   
+  public static int[] sort(int[] arr) {
+    // Your algorithm goes here!  
+    for (int i = 1; i < arr.length; i++) {
+        int j = i-1;
+        
+        while (j >= 0 && arr[i] < arr[j]) {
+            j--; 
+        }
+        int temp = arr[i]; 
+        int k = i;
+        while (k > j+1) {
+            arr[k] = arr[k-1]; 
+            k--;
+        }
+        arr[k] = temp;
+    }
+    
+    
+    return arr;
+  }
+  
   public static void main(String[] args) {
     int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
       31,66,71,32,19,79,58,61,82,89,63,7,4,50,10,48,24,75,19,22,
@@ -43,7 +64,7 @@ public class Binary
       
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
-    arr = sort.Insertion.sort(arr);
+    arr = sort(arr);
  
     ////////////////////////////////////////////////////////////
     // Do not change anything below this line!!
